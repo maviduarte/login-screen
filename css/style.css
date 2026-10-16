@@ -2,6 +2,10 @@
     font-family: 'Poppins';
     src: url('../fonts/Poppins-Regular.ttf');
 }
+@font-face {
+    font-family: 'HP';
+    src: url('../fonts/HARRYP__.TTF');
+}
 
 * {
     margin: 0;
@@ -13,12 +17,15 @@
 }
 
 :root {
-    --c0:#FFFFFF;
+    --c0: #FFFFFF;
     --c1: #CCCCCC;
     --c2: #ffffff33;
     --c3: #000000;
     --c4: #0000ff33;
     --c5: #1226697e;
+    --c6: #DDDDDD;
+    --c7: #56b3ff;
+    --c8: #b0dbff;
 }
 
 body {
@@ -31,8 +38,9 @@ body {
     justify-content: center;
 }
 
+
 form.container {
-    width: 420px;
+    width: 450px;
     color: var(--c0);
     background-color: transparent;
     backdrop-filter: blur(20px);
@@ -40,18 +48,67 @@ form.container {
     border-radius: 20px;
     padding: 30px 40px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-    
+
+    animation: float 3s backwards infinite;
+
     & h1 {
         font-size: 36px;
-        text-align: center;
+        margin-bottom: 10px;
+
+        & span {
+            font-family: "HP", sans-serif;
+            font-size: 57px;
+            color: var(--c8);
+        }
     }
-    
+
+    & p {
+        color: var(--c6);
+
+        & span {
+            color: var(--c7);
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        & span#line {
+            position: relative;
+
+            &:hover {
+                color: var(--c0);
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background-color: var(--c7);
+                transform: scaleX(0);
+                transform-origin: bottom right;
+                transition: transform .3s ease-out;
+            }
+
+            &:hover::after {
+                transform: scaleX(1);
+                transform-origin: bottom left;
+            }
+        }
+        
+        & span#light:hover {
+            color: var(--c8);
+            text-shadow: 0 0 10px var(--c0);
+        }
+    }
+
     & div.box-input {
         position: relative;
         width: 100%;
         height: 50px;
         margin: 30px 0;
-        
+
         & input {
             width: 100%;
             height: 100%;
@@ -63,16 +120,19 @@ form.container {
             border-radius: 40px;
             padding: 20px 45px 20px 20px;
         }
+
         & input::placeholder {
             color: var(--c1);
         }
+
         & input:hover {
             border-color: var(--c0);
         }
+
         & input:focus {
             border: 2px solid var(--c0);
         }
-        
+
         & i {
             position: absolute;
             right: 20px;
@@ -90,16 +150,18 @@ form.container {
         & label input {
             accent-color: var(--c0);
             margin-right: 5px;
+            cursor: pointer;
         }
     }
 
     & div.box-password,
     div.box-register {
         font-size: 14px;
-        
+
         & a {
             color: var(--c0);
         }
+
         & a:hover {
             text-decoration: underline;
         }
@@ -113,15 +175,17 @@ form.container {
         font-size: 16px;
         font-weight: 600;
         cursor: pointer;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        box-shadow: rgba(0, 174, 255, 0.35) 0px 5px 15px;
         margin-top: 20px;
         transition: .5s;
     }
+
     & button#login:hover {
         background-color: var(--c5);
         border: 2px solid var(--c2);
         transform: scale(0.98);
         color: var(--c0);
+        box-shadow: rgba(139, 139, 253, 0.25) 0px 50px 100px -20px, rgba(255, 255, 255, 0.3) 0px 30px 60px -30px, rgba(40, 147, 253, 0.35) 0px -2px 6px 0px;
     }
 
     & div.box-register {
@@ -131,5 +195,28 @@ form.container {
         & a {
             font-weight: 600;
         }
+    }
+
+    &:hover {
+        animation: none;
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(14px, -10px) rotate(-2deg);
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(255, 255, 255, 0.2) 0px 0px 15px;
+    }
+
+    50% {
+        transform: translate(18px, -20px) rotate(2deg);
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(255, 255, 255, 0.35) 0px 0px 70px;
+    }
+
+    80% {
+        transform: translate(14px, 10px) rotate(-2deg);
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(255, 255, 255, 0.3) 0px 0px 40px;
     }
 }
