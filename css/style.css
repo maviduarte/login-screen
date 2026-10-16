@@ -59,6 +59,8 @@ form.container {
             font-family: "HP", sans-serif;
             font-size: 57px;
             color: var(--c8);
+
+            animation: pulse 3s backwards infinite;
         }
     }
 
@@ -218,5 +220,16 @@ form.container {
     80% {
         transform: translate(14px, 10px) rotate(-2deg);
         box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(255, 255, 255, 0.3) 0px 0px 40px;
+    }
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        text-shadow: 0 0 2px var(--c7);
+    }
+    
+    50% {
+        text-shadow: 0 0 10px var(--c7);
     }
 }
