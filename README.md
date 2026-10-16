@@ -6,6 +6,6 @@ Desenvolvimento de uma **Página de Login** com referência em *Harry Potter* ut
 
 <br/>
 
-<center>
+<div style=" justify-content: center;">
 <a href="https://maviduarte.github.io/login-screen/"><img src='img/favicon.ico' width='80px'></a>
-</center>
+</div>
